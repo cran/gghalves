@@ -1,4 +1,4 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -6,56 +6,56 @@ knitr::opts_chunk$set(
 library(gghalves)
 library(dplyr)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) + 
   geom_half_point()
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_point(transformation_params = list(height = 0, width = 0.001, seed = 1))
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_point(transformation = PositionIdentity)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_boxplot()
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_boxplot(side = "r", center = TRUE, errorbar.draw = FALSE)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_violin()
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_violin() + 
   geom_dotplot(binaxis = "y", method="histodot", stackdir="up")
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 df <- data.frame(score = rgamma(150, 4, 1), 
                  gender = sample(c("M", "F"), 150, replace = TRUE), 
                 genotype = factor(sample(1:3, 150, replace = TRUE)))
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(df, aes(x = genotype, y = score, fill = gender)) +
   geom_half_violin() + 
   geom_dotplot(binaxis = "y", method="histodot", stackdir="up", position = PositionDodge)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ggplot(df, aes(x = genotype, y = score, fill = gender)) +
   geom_half_violin() + 
   geom_half_dotplot(method="histodot", stackdir="up")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  ggplot(iris, aes(x = Species, y = Sepal.Width)) +
 #    geom_half_boxplot() +
 #    geom_beeswarm(beeswarmArgs = list(side = 1))
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  ggplot() +
 #  
 #    geom_half_boxplot(
