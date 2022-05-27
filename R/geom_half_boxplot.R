@@ -6,6 +6,8 @@
 #' @param side The side of the half-geom, "l" for left and "r" for right, defaults to "l".
 #' @param center Boolean whether to center the half-boxplot instead of aligning it to its respective side.
 #' @param nudge Add space between the boxplot and the middle of the space allotted to a given factor on the x-axis.
+#' @param stat Use to override the default connection between
+#'   `geom_boxplot()` and `stat_boxplot()`.
 #' @importFrom ggplot2 layer position_dodge2 aes GeomSegment GeomCrossbar
 #' @importFrom grid grobTree grobName
 #' @examples 
@@ -156,7 +158,7 @@ GeomHalfBoxplot <- ggproto("GeomHalfBoxplot", GeomBoxplot,
   
       error_whiskers <- data.frame(
         x = if (side == "r") (data$xmin + xrange / 2) + nudge else (data$xmin + xrange / 2) - nudge ,
-        xend = if (side == "r") data$xmax - error_length_add else data$xmin + error_length_add,
+        xend = if (side == "r") data$xmax - error_length_add + nudge else data$xmin + error_length_add - nudge,
         y = c(data$ymax, data$ymin),
         yend = c(data$ymax, data$ymin),
         alpha = NA,

@@ -19,6 +19,11 @@ ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_point(transformation = PositionIdentity)
 
 ## -----------------------------------------------------------------------------
+ggplot(iris, aes(y = Sepal.Width)) +
+  geom_half_boxplot() +
+  geom_half_point_panel(aes(x = 0.5, color = Species), range_scale = .5)
+
+## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_boxplot()
 
@@ -29,6 +34,14 @@ ggplot(iris, aes(x = Species, y = Sepal.Width)) +
 ## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_violin()
+
+## -----------------------------------------------------------------------------
+ggplot() +
+  geom_half_violin(
+    data = ToothGrowth, 
+    aes(x = as.factor(dose), y = len, split = supp, fill = supp),
+    position = "identity"
+  )
 
 ## -----------------------------------------------------------------------------
 ggplot(iris, aes(x = Species, y = Sepal.Width)) +

@@ -57,7 +57,20 @@ ggplot(iris, aes(x = Species, y = Sepal.Width)) +
 
 Making the transformation work with custom `Position`s from `ggplot2` extensions is something that will hopefully be included in future updates of this package.
 
+
+## GeomHalfPointPanel
+
+Sometimes we want to color points within the `aes()` groupings. In that case, we can make use of `geom_half_point_panel()`.
+
+```{r}
+ggplot(iris, aes(y = Sepal.Width)) +
+  geom_half_boxplot() +
+  geom_half_point_panel(aes(x = 0.5, color = Species), range_scale = .5)
+```
+
+
 Like all `_half_` geoms, `geom_half_point` also takes a `side` argument, with `l` for left and `r` for right.
+
 
 ## GeomHalfBoxplot
 
@@ -84,6 +97,16 @@ ggplot(iris, aes(x = Species, y = Sepal.Width)) +
   geom_half_violin()
 ```
 
+Furthermore, if we have a binary grouping variable (such as control/treatment) we can plot side-by-side comparisons with the optional `split` aesthetic:
+
+```{r}
+ggplot() +
+  geom_half_violin(
+    data = ToothGrowth, 
+    aes(x = as.factor(dose), y = len, split = supp, fill = supp),
+    position = "identity"
+  )
+```
 
 ## GeomHalfDotplot
 
