@@ -26,6 +26,15 @@
 #'     position = "identity"
 #'   ) + 
 #'   theme_minimal()  
+#'   
+#' ggplot(ToothGrowth, aes(x = supp, y = len, color = supp)) + 
+#'   geom_half_violin(side = c("l", "r"))
+#' 
+#' ggplot(data = ToothGrowth, aes(x = 1, y = len)) +
+#'   geom_half_point(aes(y = len), side = "l") +
+#'   geom_half_violin(aes(y = len), side = "r") +
+#'   coord_flip()
+#' 
 #' @export
 #' @references Hintze, J. L., Nelson, R. D. (1998) Violin Plots: A Box
 #' Plot-Density Trace Synergism. The American Statistician 52, 181-184.
@@ -91,10 +100,13 @@ GeomHalfViolin <- ggproto(
   
   draw_group = function(self, data, side = "l", nudge = 0, ..., draw_quantiles = NULL) {
     # Find the points for the line to go all the way around
-    if (length(side) == 1) {
-      side <- rep(side, data$group[1])
+    is_panel <- data$group[1] == -1
+    is_group <- FALSE
+    if (isFALSE(is_panel)) {
+      is_group <- side[data$group[1]] == 'l'
     }
-    if (side[unique(data$group)] == "l") {
+    
+    if ((is_panel & (side[1] == "l")) | is_group) {
       data <- transform(
         data,
         xminv = x + violinwidth * (xmin - x) - nudge,
