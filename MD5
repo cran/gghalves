@@ -1,8 +1,8 @@
-1273e73f0634a159b93d35f0a720bcc1 *DESCRIPTION
+ca89cf4d17af456a27b03f9a83c7dd16 *DESCRIPTION
 f5086f1ec9025a56176c3403a0e9176b *LICENSE
 bf759f5d376a87828af4182bb3614462 *NAMESPACE
-de594d294476172b749be66a2f5f2473 *NEWS.md
-842ff4bef674624955b65875febf7c6b *R/geom_half_boxplot.R
+539b5f257306b46f4c5efd795e1fdc47 *NEWS.md
+a25782862ef0efef7acde7f9e6164bf1 *R/geom_half_boxplot.R
 e9b9fa76168e6a3d0eb4c0bb4f82e9a3 *R/geom_half_dotplot.R
 dc5ce424d5808c22be8e4b52f773f8a2 *R/geom_half_point.R
 9ce1614d23ad24470dc8c0ca68165042 *R/geom_half_point_panel.R
@@ -13,10 +13,10 @@ c1bcda7ed575fa13959b41be747e521a *R/stat-half-point.R
 31c21f0c4f6b3a9ce5ad5fde4e0dca74 *R/stat-half-ydensity.R
 d2c36ec21a07276911fade4888e97794 *R/utilities.R
 6a88148a11df519a24b8ff3204a49a24 *README.md
-bd45edb511c6198c4cb0e981a1620963 *build/vignette.rds
+a4ecd5b6ac90da7441b4f99fb536eae6 *build/vignette.rds
 a53b2db6b2b3fd447a63693eea1acd6a *inst/doc/gghalves.R
 79602359d09887c4177d3a67106901f0 *inst/doc/gghalves.Rmd
-b3a2795a2ea1957a43bb737b2dd33c87 *inst/doc/gghalves.html
+867e74b2f6036df2f8dc623579218df5 *inst/doc/gghalves.html
 561631345afa671c4dabb3082aa1a987 *man/geom_half_boxplot.Rd
 ed824bdfc95454f87b35833ec227349f *man/geom_half_dotplot.Rd
 6ea28e1bd0536934086dbc85a1b00e29 *man/geom_half_point.Rd
